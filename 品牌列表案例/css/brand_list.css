@@ -1,0 +1,21 @@
+body{
+    user-select: none;
+    padding: 50px;
+    /* box-sizing: border-box; */
+}
+table, thead th {
+    text-align: center;
+}
+.panel-body{
+    display: flex;
+}
+.input-group{
+    width: 300px;
+    margin-right: 20px;
+}
+.checkbox{
+    margin: 0;
+}
+.checkbox label{
+    padding: 0;
+}
