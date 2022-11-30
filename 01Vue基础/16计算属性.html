@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>R:
+            <input type="text" v-model="r">
+        </div>
+        <div>G:
+            <input type="text" v-model="g">
+        </div>
+        <div>B:
+            <input type="text" v-model="b">
+        </div>
+        <div class="bg" :style="{ backgroundColor: rgb }"></div>
+    </div>
+    <script src="../dist/vue2.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                r: 0,
+                g: 0,
+                b: 0
+            },
+            // 计算属性在定义时，要定义成“方法格式”
+            computed: {
+                // 定义后，作为一个vm中的属性来使用
+                rgb(){
+                    return `rgb(${this.r}, ${this.g}, ${this.b})`;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

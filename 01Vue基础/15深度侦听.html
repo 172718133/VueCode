@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="info.username">
+    </div>
+    <script src="../dist/vue2.js"></script>
+    <script src="../dist/jquery-1.12.4.min.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                info: {
+                    username: 'admin'
+                }
+            },
+            watch: {
+                // info: {
+                //     handler(newVal){
+                //         console.log(newVal);
+                //     },
+                //     // 开启深度监听，只要对象中属性的值发生变化，都会触发“对象的侦听器”
+                //     deep: true
+                // }
+                'info.username': {
+                    handler(newVal){
+                        console.log(newVal);
+                }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

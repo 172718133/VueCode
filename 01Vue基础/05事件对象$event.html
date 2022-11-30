@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 3.创建需要 Vue 控制的对象，将数据填充进去 -->
+    <div id="app">
+        <p>当前的值为：{{count}}</p>
+        <button @click="add($event, 1)">+</button>
+    </div>
+    <!-- 1.导入 Vue 的库文件，导入之后Window全局就有了 Vue 这个构造函数 -->
+    <script src="../dist/vue2.js"></script>
+    <!-- 2.创建 Vue 实例对象 -->
+    <script>
+        // 创建 Vue 实例对象
+        const vm = new Vue({
+            // el表示要控制的区域，接收值为元素，选择器
+            el: '#app',
+            // 数据
+            data: {
+                count: 0
+            },
+            methods: {
+                add(e, n) {
+                    this.count += 1;
+                    // 判断
+                    if (this.count % 2 === 1) {
+                        // 奇数
+                        e.target.style.backgroundColor = 'aqua';
+                    } else {
+                        // 偶数
+                        e.target.style.backgroundColor = '';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

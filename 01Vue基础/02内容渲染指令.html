@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 3.创建需要 Vue 控制的对象，将数据填充进去 -->
+    <div id="app">
+        <!-- 使用 v-text 渲染数据会覆盖原内容 -->
+        <p v-text="username">姓名：</p>
+        <p v-text="gender">性别：</p>
+
+        <hr>
+
+        <!-- 插值表达式，在{{}}占位符中插入数据 -->
+        <p>姓名：{{ username }}</p>
+        <p>性别：{{ gender }}</p>
+
+        <hr>
+
+        <p v-text="info"></p>
+        <p>{{ info }}</p>
+        <p v-html="info"></p>
+    </div>
+    <!-- 1.导入 Vue 的库文件，导入之后Window全局就有了 Vue 这个构造函数 -->
+    <script src="../dist/vue2.js"></script>
+    <!-- 2.创建 Vue 实例对象 -->
+    <script>
+        // 创建 Vue 实例对象
+        const vm = new Vue({
+            // el表示要控制的区域，接收值为元素，选择器
+            el: '#app',
+            // 数据
+            data: {
+                username: 'loong',
+                gender: '男',
+                info: '<h3 style="color: purple; font-weight: bold">Welcome to China!</h3>'
+            }
+        });
+    </script>
+</body>
+
+</html>

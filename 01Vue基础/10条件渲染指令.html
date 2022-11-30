@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 3.创建需要 Vue 控制的对象，将数据填充进去 -->
+    <div id="app">
+        <div v-if="flag">v-if 控制的成立标签</div>
+        <div v-else>v-else 控制的不成立标签</div>
+        <div v-show="flag">v-show 控制的标签</div>
+        <hr>
+        <div v-if="type === 'A'">优秀</div>
+        <div v-else-if="type === 'B'">良好</div>
+        <div v-else-if="type === 'C'">及格</div>
+        <div v-else>差</div>
+    </div>
+
+
+    <!-- 1.导入 Vue 的库文件，导入之后Window全局就有了 Vue 这个构造函数 -->
+    <script src="../dist/vue2.js"></script>
+    <!-- 2.创建 Vue 实例对象 -->
+    <script>
+        // 创建 Vue 实例对象
+        const vm = new Vue({
+            // el表示要控制的区域，接收值为元素，选择器
+            el: '#app',
+            // 数据
+            data: {
+                flag: true,
+                type: 'A',
+            }
+        });
+    </script>
+</body>
+
+</html>

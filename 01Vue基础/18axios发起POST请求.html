@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnPost">POST</button>
+    <button id="btnGet">GET</button>
+    <script src="../dist/axios.min.js"></script>
+    <script>
+        document.querySelector('#btnPost').addEventListener('click',async function() {
+            const { data } = await axios({
+                method: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/post',
+                data: {
+                    name: 'zs',
+                    age: 20
+                }
+            });
+            console.log(data);
+        });
+        document.querySelector('#btnGet').addEventListener('click',async function() {
+            const { data:res } = await axios({
+                method: 'GET',
+                url: 'http://www.liulongbin.top:3006/api/getbooks',
+            });
+            console.log(res.data);
+        });
+    </script>
+</body>
+</html>
